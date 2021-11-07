@@ -30,9 +30,17 @@
                                 <div class="blog-inner">
                                     <div class="blog-top">
                                         <div class="meta">
-                                            <span><i class="fa fa-bolt"></i><a href="#">Marketing</a></span>
-                                            <span><i class="fa fa-calendar"></i>03 May, 2018</span>
-                                            <span><i class="fa fa-eye"></i><a href="#">333k</a></span>
+                                            <span>
+												<i class="fa fa-bolt"></i>
+												<a href="javascript:void(0)">
+													<?php $category_detail = get_the_category($post->ID);
+														foreach($category_detail as $cat_name){
+														echo ucfirst($cat_name->cat_name); } 
+													?>
+												</a>
+											</span>
+                                            <span><i class="fa fa-calendar"></i><?php echo get_the_time('d, F, Y', $post->ID); ?></span>
+                                            <span><a href="javascript:void(0)"><?php echo do_shortcode('[post-views]'); ?></a></span>
                                         </div>
                                         <ul class="social-share">
                                             <li><a href="#"><i class="fa fa-facebook"></i></a></li>
@@ -57,21 +65,28 @@
                             <!-- End Single Blog -->
                         </div>
                         <div class="col-12">
+						<?php $args = array('post_type' => 'post');
+								
+							$post_obj = new WP_Query($args);
+								while($post_obj->have_posts() ) : $post_obj->the_post();
+
+								$comments = get_comments(array(
+									'post_id' => $post->ID
+								));
+								foreach($comments as $comment) {
+									//echo "<pre>"; print_r($comment); echo "</pre>";
+								}
+						endwhile; ?>
                             <div class="author-details">
                                 <div class="author-left">
-                                    <img src="images/t4.jpg" alt="#">
-                                    <h4>About Author<span>Senior Author</span></h4>
-                                    <p><a href="#"><i class="fa fa-pencil"></i>33 posts</a></p>
+								<?php $author_id=$post->post_author; ?>
+									<img src="http://localhost/smartthingsolutions/wp-content/uploads/2021/11/t4.jpg" width="140" height="140" class="avatar" alt="<?php echo the_author_meta( 'display_name' , $author_id ); ?>" />
+									<h4><?php the_author_meta( 'user_nicename' , $author_id ); ?></h4> 
+                                    <p><a href="javascript:void(0)"><?php the_author_posts(); ?> posts</a></p>
                                 </div>
                                 <div class="author-content">
-                                    <p>Hi My name is Lamp! quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula There are many variations of passages of Lorem Ipsum available, but the majority have suffered alterations. Vivamus vehicula quis cursus. In hac habitasse platea dictumst Aenean tristique odio id lectus solmania trundard lamp!</p>
-                                    <ul class="social-share">
-                                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                    </ul>
+                                    <p><?php the_author_meta('description'); ?></p>
+									<?php echo do_shortcode(get_option('smartthingsolutions_social_icons_option')); ?>
                                 </div>
                             </div>
                         </div>
@@ -143,39 +158,21 @@
                             </div>
                         </div>
                         <div class="col-12">
-                            <div class="comments-form">
-                                <h2 class="title">Leave a comment</h2>
-                                <!-- Contact Form -->
-                                <form class="form" method="post" action="mail/mail.php">
-                                    <div class="row">
-                                        <div class="col-lg-4 col-12">
-                                            <div class="form-group">
-                                                <input type="text" name="name" placeholder="Full Name" required="required">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 col-12">
-                                            <div class="form-group">
-                                                <input type="email" name="email" placeholder="Your Email" required="required">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 col-12">
-                                            <div class="form-group">
-                                                <input type="url" name="website" placeholder="Website" required="required">
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <div class="form-group">
-                                                <textarea name="message" rows="5" placeholder="Type Your Message Here" ></textarea>
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <div class="form-group button">	
-                                                <button type="submit" class="btn primary">Submit Comment</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
-                                <!--/ End Contact Form -->
+                            <div class="comments-form"> 	
+								<?php
+									$comments_args = array(
+										// Change the title of send button 
+										'label_submit' => __( 'Submit Comment', 'textdomain' ),
+										// Change the title of the reply section
+										'title_reply' => __( '<h2 class="title">Leave a comment</h2>', 'textdomain' ),
+										// Remove "Text or HTML to be displayed after the set of comment fields".
+										
+										'comment_notes_after' => '',
+
+										'comment_field' => '<div class="row"><div class="col-12"><div class="form-group"><textarea id="comment" name="comment" placeholder="Type Your Message Here" aria-required="true"></textarea></div></div></div>',
+									);
+									comment_form( $comments_args );
+								?>
                             </div>
                         </div>
                     </div>
@@ -184,8 +181,6 @@
         </div>
     </section>
     <!--/ End Blogs Area -->
-
-
 <?php 
     get_footer(); 
 ?>

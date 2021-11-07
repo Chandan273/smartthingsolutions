@@ -70,13 +70,7 @@
 								</div>
 								<!--/ End Search Form -->
 								<!-- Social -->
-								<ul class="social">
-									<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-									<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-									<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-									<li><a href="#"><i class="fa fa-behance"></i></a></li>
-									<li><a href="#"><i class="fa fa-youtube"></i></a></li>
-								</ul>
+									<?php echo do_shortcode(get_option('smartthingsolutions_social_icons_option')); ?>
 								<!--/ End Social -->
 							</div>
 						</div>
@@ -92,9 +86,8 @@
 							<!-- Logo -->
 							<div class="logo">
 								<?php the_custom_logo(); ?>
-								<!--a href="index.html"><img src="<?php //echo get_template_directory_uri(); ?>/assets/images/logo.png" alt="logo"></a-->
 							</div>
-							<div class="link"><a href="index.html"><span>S</span>martThing</a><p>Solutions</p></div>
+							<div class="link"><?php the_custom_logo(); ?></div>
 							<!--/ End Logo -->
 							<button class="mobile-arrow"><i class="fa fa-bars"></i></button>
 							<div class="mobile-menu"></div>
@@ -109,30 +102,9 @@
 										//'theme_location'=>'header_menu'
 									)
 								); ?>
-								<!-- <nav class="navigation">
-									<ul class="nav menu">
-										<li class="active"><a href="index.html">Home</a></li>
-										<li><a href="#">Pages<i class="fa fa-caret-down"></i></a>
-											<ul class="dropdown">
-												<li><a href="about-us.html">About Us</a></li>
-												<li><a href="team.html">Our Team</a></li>
-												<li><a href="pricing.html">Pricing</a></li>
-											</ul>
-										</li>
-										<li><a href="services.html">Services</a></li>	
-										<li><a href="portfolio.html">Portfolio</a></li>	
-										<li><a href="#">Blogs<i class="fa fa-caret-down"></i></a>
-											<ul class="dropdown">
-												<li><a href="blog.html">Blog layout</a></li>
-												<li><a href="blog-single.html">Blog Single</a></li>
-											</ul>
-										</li>
-										<li><a href="contact.html">Contact</a></li>
-									</ul>
-								</nav> -->
 								<!-- Button -->
 								<div class="button">
-									<a href="contact.html" class="btn">Get a quote</a>
+									<a href="<?php echo get_option('smartthingsolutions_buttonurl_option'); ?>" class="btn"><?php echo get_option('smartthingsolutions_headerquote_option'); ?></a>
 								</div>
 								<!--/ End Button -->
 							</div>

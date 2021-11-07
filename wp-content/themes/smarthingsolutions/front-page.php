@@ -16,7 +16,7 @@
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi laoreet urna ante, quis luctus nisi sodales sit amet. Aliquam a enim in massa molestie mollis Proin quis velit at nisl vulputate egestas non in arcu Proin a magna hendrerit, tincidunt neque sed. </p>
                                 <div class="button">
                                     <a href="portfolio-3-column.html" class="btn">Our Portfolio</a>
-                                    <a href="https://www.youtube.com/watch?v=FZQPhrdKjow" class="btn video video-popup mfp-fade"><i class="fa fa-play"></i>Play Now</a>
+                                    <a href="https://www.youtube.com/watch?v=WfMgkLWPZ-w" class="btn video video-popup mfp-fade"><i class="fa fa-play"></i>Play Now</a>
                                 </div>
                             </div>
                             <!--/ End Slider Text -->
@@ -60,7 +60,7 @@
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi laoreet urna ante, quis luctus nisi sodales sit amet. Aliquam a enim in massa molestie mollis Proin quis velit at nisl vulputate egestas non in arcu Proin a magna hendrerit, tincidunt neque sed. </p>
                                 <div class="button">
                                     <a href="services.html" class="btn">Our Services</a>
-                                    <a href="https://www.youtube.com/watch?v=FZQPhrdKjow" class="btn video video-popup mfp-fade"><i class="fa fa-play"></i>Play Now</a>
+                                    <a href="https://www.youtube.com/watch?v=WfMgkLWPZ-w" class="btn video video-popup mfp-fade"><i class="fa fa-play"></i>Play Now</a>
                                 </div>
                             </div>
                             <!--/ End Slider Text -->
@@ -80,7 +80,7 @@
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi laoreet urna ante, quis luctus nisi sodales sit amet. Aliquam a enim in massa molestie mollis Proin quis velit at nisl vulputate egestas non in arcu Proin a magna hendrerit, tincidunt neque sed. </p>
                                 <div class="button">
                                     <a href="about-us.html" class="btn">About Company</a>
-                                    <a href="https://www.youtube.com/watch?v=FZQPhrdKjow" class="btn video video-popup mfp-fade"><i class="fa fa-play"></i>Play Now</a>
+                                    <a href="https://www.youtube.com/watch?v=WfMgkLWPZ-w" class="btn video video-popup mfp-fade"><i class="fa fa-play"></i>Play Now</a>
                                 </div>
                             </div>
                             <!--/ End Slider Text -->
@@ -111,7 +111,7 @@
                     <!-- Video -->
                     <div class="about-video">
                         <div class="single-video overlay">
-                            <a href="https://www.youtube.com/watch?v=E-2ocmhF6TA" class="video-popup mfp-fade"><i class="fa fa-play"></i></a>
+                            <a href="https://www.youtube.com/watch?v=WfMgkLWPZ-w" class="video-popup mfp-fade"><i class="fa fa-play"></i></a>
                             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/gallery-4.jpg" alt="#">
                         </div>
                     </div>
@@ -397,7 +397,7 @@
                                         <h4><a href="portfolio-single.html">Responsive Design</a></h4>
                                         <p>Maecenas sapien erat, porta non porttitor non, dignissim et enim. Aenean ac enim</p>
                                         <div class="button">
-                                            <a href="https://www.youtube.com/watch?v=E-2ocmhF6TA" class="primary cbp-lightbox"><i class="fa fa-play"></i></a>
+                                            <a href="https://www.youtube.com/watch?v=WfMgkLWPZ-w" class="primary cbp-lightbox"><i class="fa fa-play"></i></a>
                                             <a href="portfolio-single.html"><i class="fa fa-link"></i></a>
                                         </div>
                                     </div>
@@ -431,7 +431,7 @@
                                         <h4><a href="portfolio-single.html">Clean Design</a></h4>
                                         <p>Maecenas sapien erat, porta non porttitor non, dignissim et enim. Aenean ac enim</p>
                                         <div class="button">
-                                            <a href="https://www.youtube.com/watch?v=E-2ocmhF6TA" class="primary cbp-lightbox"><i class="fa fa-play"></i></a>
+                                            <a href="https://www.youtube.com/watch?v=WfMgkLWPZ-w" class="primary cbp-lightbox"><i class="fa fa-play"></i></a>
                                             <a href="portfolio-single.html"><i class="fa fa-link"></i></a>
                                         </div>
                                     </div>
@@ -465,7 +465,7 @@
                                         <h4><a href="portfolio-single.html">Parallax</a></h4>
                                         <p>Maecenas sapien erat, porta non porttitor non, dignissim et enim. Aenean ac enim</p>
                                         <div class="button">
-                                            <a href="https://www.youtube.com/watch?v=E-2ocmhF6TA" class="primary cbp-lightbox"><i class="fa fa-play"></i></a>
+                                            <a href="https://www.youtube.com/watch?v=WfMgkLWPZ-w" class="primary cbp-lightbox"><i class="fa fa-play"></i></a>
                                             <a href="portfolio-single.html"><i class="fa fa-link"></i></a>
                                         </div>
                                     </div>
@@ -567,90 +567,18 @@
                 <div class="col-12">
                     <div class="partners-inner">
                         <div class="row no-gutters">
-                            <!-- Single Partner -->
-                            <div class="col-lg-2 col-md-3 col-12">
-                                <div class="single-partner">
-                                    <a href="#" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/partner-1.png" alt="#"></a>
-                                </div>
-                            </div>
-                            <!--/ End Single Partner -->
-                            <!-- Single Partner -->
-                            <div class="col-lg-2 col-md-3 col-12">
-                                <div class="single-partner">
-                                    <a href="#" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/partner-2.png" alt="#"></a>
-                                </div>
-                            </div>
-                            <!--/ End Single Partner -->
-                            <!-- Single Partner -->
-                            <div class="col-lg-2 col-md-3 col-12">
-                                <div class="single-partner">
-                                    <a href="#" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/partner-3.png" alt="#"></a>
-                                </div>
-                            </div>
-                            <!--/ End Single Partner -->
-                            <!-- Single Partner -->
-                            <div class="col-lg-2 col-md-3 col-12">
-                                <div class="single-partner">
-                                    <a href="#" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/partner-4.png" alt="#"></a>
-                                </div>
-                            </div>
-                            <!--/ End Single Partner -->
-                            <!-- Single Partner -->
-                            <div class="col-lg-2 col-md-3 col-12">
-                                <div class="single-partner">
-                                    <a href="#" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/partner-5.png" alt="#"></a>
-                                </div>
-                            </div>
-                            <!--/ End Single Partner -->
-                            <!-- Single Partner -->
-                            <div class="col-lg-2 col-md-3 col-12">
-                                <div class="single-partner">
-                                    <a href="#" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/partner-6.png" alt="#"></a>
-                                </div>
-                            </div>
-                            <!--/ End Single Partner -->
-                            <!-- Single Partner -->
-                            <div class="col-lg-2 col-md-3 col-12">
-                                <div class="single-partner">
-                                    <a href="#" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/partner-7.png" alt="#"></a>
-                                </div>
-                            </div>
-                            <!--/ End Single Partner -->
-                            <!-- Single Partner -->
-                            <div class="col-lg-2 col-md-3 col-12">
-                                <div class="single-partner">
-                                    <a href="#" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/partner-8.png" alt="#"></a>
-                                </div>
-                            </div>
-                            <!--/ End Single Partner -->
-                            <!-- Single Partner -->
-                            <div class="col-lg-2 col-md-3 col-12">
-                                <div class="single-partner">
-                                    <a href="#" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/partner-5.png" alt="#"></a>
-                                </div>
-                            </div>
-                            <!--/ End Single Partner -->
-                            <!-- Single Partner -->
-                            <div class="col-lg-2 col-md-3 col-12">
-                                <div class="single-partner">
-                                    <a href="#" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/partner-6.png" alt="#"></a>
-                                </div>
-                            </div>
-                            <!--/ End Single Partner -->
-                            <!-- Single Partner -->
-                            <div class="col-lg-2 col-md-3 col-12">
-                                <div class="single-partner">
-                                    <a href="#" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/partner-7.png" alt="#"></a>
-                                </div>
-                            </div>
-                            <!--/ End Single Partner -->
-                            <!-- Single Partner -->
-                            <div class="col-lg-2 col-md-3 col-12">
-                                <div class="single-partner">
-                                    <a href="#" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/partner-3.png" alt="#"></a>
-                                </div>
-                            </div>
-                            <!--/ End Single Partner -->
+							<?php if( have_rows('our_partner_gallery','option') ):
+								while( have_rows('our_partner_gallery','option') ) : the_row(); ?>
+									<!-- Single Partner -->
+									<div class="col-lg-2 col-md-3 col-12">
+										<div class="single-partner">
+											<a href="#" target="_blank"><img src="<?php echo get_sub_field('partner_logo'); ?>" alt="partner_
+											logo"></a>
+										</div>
+									</div>
+							<?php endwhile;
+								endif; 
+							?>
                         </div>
                     </div>
                 </div>

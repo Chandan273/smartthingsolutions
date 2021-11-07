@@ -6,7 +6,10 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-12">
-						<h2>Our Contact Details</h2>
+					<?php
+						$contact_us = get_field('contact_us');
+					?>						
+						<h2><?php echo $contact_us['banner_heading']; ?></h2>
 						<ul class="breadcrumb-cls"><?php get_breadcrumb(); ?></ul>
 					</div>
 				</div>
@@ -23,6 +26,7 @@
                             
                         <?php if(have_posts()): the_post(); ?>
                             <span class="title-bg"><?php the_title(); ?></span>
+							<h1><?php the_title(); ?></h1>
                             <?php the_content(); ?>
                         <?php endif; ?>    
 
@@ -37,9 +41,9 @@
 								<div class="col-lg-8 col-12">
 									<div class="form-main">
 										<div class="text-content">
-											<h2>Send Message Us</h2>
+											<h2><?php echo $contact_us['form_heading']; ?></h2>
 										</div>
-										<?php echo do_shortcode('[contact-form-7 id="20" title="Contact us"]'); ?>	
+										<?php echo do_shortcode($contact_us['shortcode']); ?>	
 									</div>
 								</div>
 								<!--/ End Contact Form -->
@@ -47,14 +51,7 @@
 								<div class="col-lg-4 col-12">
 									<div class="contact-address">
 										<!-- Address -->
-										<div class="contact">
-											<h2>Our Contact Address</h2>
-											<ul class="address">
-												<li><i class="fa fa-paper-plane"></i><span>Address: </span> Road no 3, Block-D, Khilgaon 1200, Dhaka Bangladesh</li>
-												<li><i class="fa fa-phone"></i><span>Phone: </span>+(123) 31222183</li>
-												<li class="email"><i class="fa fa-envelope"></i><span>Email: </span><a href="mailto:info@youremail.com">info@youremail.com</a></li>
-											</ul>
-										</div>
+										<?php echo $contact_us['address']; ?>
 										<!--/ End Address -->
 										<!-- Social -->
 										<ul class="social">
@@ -82,9 +79,9 @@
 				<div class="row">
 					<div class="col-12">
 						<div class="section-title">
-							<span class="title-bg">Clients</span>
-							<h1>Our Partners</h1>
-							<p>Sed lorem enim, faucibus at erat eget, laoreet tincidunt tortor. Ut sed mi nec ligula bibendum aliquam. Sed scelerisque maximus magna, a vehicula turpis Proin<p>
+							<span class="title-bg"><?php echo $contact_us['client_background_title']; ?></span>
+							<h1><?php echo $contact_us['client_heading']; ?></h1>
+							<p><?php echo $contact_us['client_description']; ?><p>
 						</div>
 					</div>
 				</div>
@@ -92,90 +89,18 @@
 					<div class="col-12">
 						<div class="partners-inner">
 							<div class="row no-gutters">
-								<!-- Single Partner -->
-								<div class="col-lg-2 col-md-3 col-12">
-									<div class="single-partner">
-										<a href="#" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/partner-1.png" alt="#"></a>
-									</div>
-								</div>
-								<!--/ End Single Partner -->
-								<!-- Single Partner -->
-								<div class="col-lg-2 col-md-3 col-12">
-									<div class="single-partner">
-										<a href="#" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/partner-2.png" alt="#"></a>
-									</div>
-								</div>
-								<!--/ End Single Partner -->
-								<!-- Single Partner -->
-								<div class="col-lg-2 col-md-3 col-12">
-									<div class="single-partner">
-										<a href="#" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/partner-3.png" alt="#"></a>
-									</div>
-								</div>
-								<!--/ End Single Partner -->
-								<!-- Single Partner -->
-								<div class="col-lg-2 col-md-3 col-12">
-									<div class="single-partner">
-										<a href="#" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/partner-4.png" alt="#"></a>
-									</div>
-								</div>
-								<!--/ End Single Partner -->
-								<!-- Single Partner -->
-								<div class="col-lg-2 col-md-3 col-12">
-									<div class="single-partner">
-										<a href="#" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/partner-5.png" alt="#"></a>
-									</div>
-								</div>
-								<!--/ End Single Partner -->
-								<!-- Single Partner -->
-								<div class="col-lg-2 col-md-3 col-12">
-									<div class="single-partner">
-										<a href="#" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/partner-6.png" alt="#"></a>
-									</div>
-								</div>
-								<!--/ End Single Partner -->
-								<!-- Single Partner -->
-								<div class="col-lg-2 col-md-3 col-12">
-									<div class="single-partner">
-										<a href="#" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/partner-7.png" alt="#"></a>
-									</div>
-								</div>
-								<!--/ End Single Partner -->
-								<!-- Single Partner -->
-								<div class="col-lg-2 col-md-3 col-12">
-									<div class="single-partner">
-										<a href="#" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/partner-8.png" alt="#"></a>
-									</div>
-								</div>
-								<!--/ End Single Partner -->
-								<!-- Single Partner -->
-								<div class="col-lg-2 col-md-3 col-12">
-									<div class="single-partner">
-										<a href="#" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/partner-5.png" alt="#"></a>
-									</div>
-								</div>
-								<!--/ End Single Partner -->
-								<!-- Single Partner -->
-								<div class="col-lg-2 col-md-3 col-12">
-									<div class="single-partner">
-										<a href="#" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/partner-6.png" alt="#"></a>
-									</div>
-								</div>
-								<!--/ End Single Partner -->
-								<!-- Single Partner -->
-								<div class="col-lg-2 col-md-3 col-12">
-									<div class="single-partner">
-										<a href="#" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/partner-7.png" alt="#"></a>
-									</div>
-								</div>
-								<!--/ End Single Partner -->
-								<!-- Single Partner -->
-								<div class="col-lg-2 col-md-3 col-12">
-									<div class="single-partner">
-										<a href="#" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/partner-3.png" alt="#"></a>
-									</div>
-								</div>
-								<!--/ End Single Partner -->
+								<?php if( have_rows('our_partner_gallery','option') ):
+									while( have_rows('our_partner_gallery','option') ) : the_row(); ?>
+										<!-- Single Partner -->
+										<div class="col-lg-2 col-md-3 col-12">
+											<div class="single-partner">
+												<a href="#" target="_blank"><img src="<?php echo get_sub_field('partner_logo'); ?>" alt="partner_
+												logo"></a>
+											</div>
+										</div>
+								<?php endwhile;
+									endif; 
+								?>	
 							</div>
 						</div>
 					</div>
@@ -186,4 +111,3 @@
 <?php 
     get_footer(); 
 ?>
-    

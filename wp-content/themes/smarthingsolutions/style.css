@@ -103,19 +103,13 @@ License URI: http://www.smartthingsolutions.come/licenses/gpl-2.0.html
 	transform:rotate(90deg);
 }
 /* Social */
-.header .social {
-	display: inline-block;
-	margin-top: 7px;
+.header ul.social-icons-lists {
+    display: inline-block;
 }
-.header .social li{
-	display:inline-block;
-	margin-right:10px;
-}
-.header .social li:last-child{
-	margin-right:0;
-}
-.header .social li a {
-	color: #666;
+.header ul.social-icons-lists li.social-icons-list-item a span.socicon {
+    padding: 3px !important;
+    background: #fff !important;
+    color: #666 !important;
 }
 /* Logo */
 .header .mainmenu {
@@ -341,6 +335,11 @@ License URI: http://www.smartthingsolutions.come/licenses/gpl-2.0.html
 ul.breadcrumb-cls {
     color: #fff;
     font-size: 16px;
+}
+ul.breadcrumb-cls a{
+    color: #fff;
+    font-size: 16px;
+	pointer-events: none;
 }
 ul.breadcrumb-cls li i.fa.fa-home {
     color: #fff;
@@ -3294,31 +3293,8 @@ ul.breadcrumb-cls li i.fa.fa-home {
 	padding: 15px 0;
 }
 /* Social */
-.footer .social {
-	margin-bottom: 10px;
-}
-.footer .social li {
-	display: inline-block;
-	margin-right: 5px;
-	color: #bbb;
-	font-weight: 500;
-}
-.footer .social li:last-child{
-	margin:0;
-}
-.footer .social a {
-	display: block;
-	width: 30px;
-	height: 30px;
-	line-height: 30px;
-	text-align: center;
-	color: #fff;
-	border: 1px solid #e7e7e7;
-	border-radius: 30px;
-}
-.footer .social li:hover a{
-	background:#fff;
-	border-color:transparent;
+.footer .social-icons-lists {
+    margin: 10px 0;
 }
 .footer .copyright p {
 	color: #ddd;
@@ -3337,6 +3313,17 @@ ul.breadcrumb-cls li i.fa.fa-home {
     text-transform: capitalize;
     display: block;
     position: relative;
+}
+.single-widget.newsletter input.wpcf7-form-control.has-spinner.wpcf7-submit {
+    background: #5f7ed1;
+    color: #fff;
+    display: inline-block;
+    padding: 9px 24px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+.single-widget.newsletter .wpcf7-response-output {
+    color: #fff;
 }
 /*======================================
 	End Footer CSS
@@ -3378,4 +3365,42 @@ ul.breadcrumb-cls li i.fa.fa-home {
 
 /*======================================
     404 page CSS End
+======================================*/
+
+
+/*======================================
+    Custom CSS Start
+======================================*/
+
+.post-views.entry-meta > span.post-views-icon.dashicons {
+    color: #607ed0;
+}
+.comments-form form#commentform a {
+    font-size: 16px;
+    color: #607fd1;
+    font-weight: 700;
+}
+.form-submit input#submit {
+    font-size: 17px;
+    color: #fff;
+    background: #607fd1;
+    border-radius: 3px;
+    border: solid #5f7ed1;
+    width: 100%;
+    margin: 0;
+    text-transform: uppercase;
+    padding: 10px 0;
+}
+.post_area.widget_area ul {
+    margin: 35px 0;
+}
+.post_area.widget_area ul a.post-title:hover {
+    color: #5f7ed1;
+}
+.post_area.widget_area ul a.post-title {
+    color: #bbb;
+    line-height: 26px;
+}
+/*======================================
+    Custom CSS End
 ======================================*/

@@ -6,8 +6,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <h2><i class="fa fa-pencil"></i>Our Blogs</h2>
-                    <ul class="breadcrumb-cls"><?php get_breadcrumb(); ?>&nbsp;&nbsp;»&nbsp;&nbsp;<?php  $post = $wp_query->get_queried_object(); echo ucfirst($post->post_name);?></ul>
+                    <h2><?php $post = $wp_query->get_queried_object(); echo ucfirst($post->post_name);?></h2>
+                    <ul class="breadcrumb-cls"><?php get_breadcrumb(); ?>&nbsp;&nbsp;»&nbsp;&nbsp;<?php echo ucfirst($post->post_name);?></ul>
                 </div>
             </div>
         </div>
@@ -42,9 +42,17 @@
                                 <h4><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
                                 <?php the_content(); ?>
                                 <div class="meta">
-                                    <span><i class="fa fa-bolt"></i><a href="#">Marketing</a></span>
-                                    <span><i class="fa fa-calendar"></i>03 May, 2018</span>
-                                    <span><i class="fa fa-eye"></i><a href="#">333k</a></span>
+                                    <span>
+										<i class="fa fa-bolt"></i>
+										<a href="javascript:void(0)"> 
+											<?php $category_detail = get_the_category($post->ID);
+											foreach($category_detail as $cat_name){
+											echo ucfirst($cat_name->cat_name); } 
+											?>
+										</a>
+									</span>
+                                    <span><i class="fa fa-calendar"></i><?php echo get_the_time('d, F, Y', $post->ID); ?></span>
+                                    <span><a href="javascript:void(0)"><?php echo do_shortcode('[post-views]'); ?></a></span>
                                 </div>
                             </div>
                         </div>
@@ -100,4 +108,3 @@
 <?php 
     get_footer(); 
 ?>
-    

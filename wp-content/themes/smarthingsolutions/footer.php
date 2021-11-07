@@ -15,7 +15,7 @@
 						<div class="col-lg-3 col-md-6 col-12 widget_area">
 							<?php dynamic_sidebar('footer_area2'); ?>
 						</div>
-						<div class="col-lg-3 col-md-6 col-12 widget_area">
+						<div class="col-lg-3 col-md-6 col-12 post_area widget_area">
 							<?php dynamic_sidebar('footer_area3'); ?>
 						</div>
 						<div class="col-lg-3 col-md-6 col-12 widget_area">
@@ -32,14 +32,7 @@
 						<div class="col-12">
 							<div class="bottom-top">
 								<!-- Social -->
-								<ul class="social">
-									<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-									<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-									<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-									<li><a href="#"><i class="fa fa-behance"></i></a></li>
-									<li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-									<li><a href="#"><i class="fa fa-youtube"></i></a></li>
-								</ul>
+									<?php echo do_shortcode(get_option('smartthingsolutions_social_icons_option')); ?>
 								<!--/ End Social -->
 								<!-- Copyright -->
 								<div class="copyright">
@@ -56,7 +49,5 @@
 		<!--/ End footer -->
 		
 		<?php wp_footer(); ?>
-		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnhgNBg6jrSuqhTeKKEFDWI0_5fZLx0vM"></script>
-		<script src="<?php echo get_template_directory_uri(); ?>/assets/js/gmap.min.js"></script>	
     </body>
 </html>

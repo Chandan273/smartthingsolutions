@@ -229,7 +229,7 @@ register_taxonomy( 'portfolios_categories', 'portfolios', $args );
 }
 
 /*****************************************
- * Add custom post type for Portfolios *
+ * Custom post-type for Portfolios *
  *****************************************/
 
 add_action('init', 'portfolios_register');
@@ -260,6 +260,7 @@ function portfolios_register() {
         'rewrite' => array( 'slug' => 'portfolios', 'with_front' => true ),
         'capability_type' => 'post',
         'menu_position' => 6,
+		'menu_icon' => 'dashicons-nametag',
         'supports' => array('title', 'excerpt', 'editor','thumbnail') //here you can specify what type of inputs will be accessible in the admin area
       );
 
@@ -321,6 +322,42 @@ function smartthingsolutions_customize_register($wp_customize){
         'section'    => 'smartthingsolutions_theme_scheme',
         'settings'   => 'smartthingsolutions_footercopyright_option',
     ));
+	
+	$wp_customize->add_setting('smartthingsolutions_headerquote_option', array(
+        'default'        => '',
+        'capability'     => 'edit_theme_options',
+        'type'           => 'option',
+    ));
+  
+    $wp_customize->add_control('smartthingsolutions_headerquote', array(
+        'label'      => __('Button Text', 'smartthingsolutions'),
+        'section'    => 'smartthingsolutions_theme_scheme',
+        'settings'   => 'smartthingsolutions_headerquote_option',
+    ));
+	
+	$wp_customize->add_setting('smartthingsolutions_buttonurl_option', array(
+        'default'        => '',
+        'capability'     => 'edit_theme_options',
+        'type'           => 'option',
+    ));
+  
+    $wp_customize->add_control('smartthingsolutions_buttonurl', array(
+        'label'      => __('Button URL', 'smartthingsolutions'),
+        'section'    => 'smartthingsolutions_theme_scheme',
+        'settings'   => 'smartthingsolutions_buttonurl_option',
+    ));
+	
+    $wp_customize->add_setting('smartthingsolutions_social_icons_option', array(
+        'default'        => '',
+        'capability'     => 'edit_theme_options',
+        'type'           => 'option',
+    ));
+  
+    $wp_customize->add_control('smartthingsolutions_social_icons', array(
+        'label'      => __('Social Icons shortcode', 'smartthingsolutions'),
+        'section'    => 'smartthingsolutions_theme_scheme',
+        'settings'   => 'smartthingsolutions_social_icons_option',
+    ));	
 }
   
 add_action('customize_register', 'smartthingsolutions_customize_register');
@@ -333,12 +370,15 @@ function theme_logo() {
 
     // <title> tag 
     add_theme_support( 'title-tag' );  
-
+	
     // custom-logo 
     add_theme_support( 'custom-logo' );
-
 }
 add_action( 'after_setup_theme', 'theme_logo');
+
+/*****************************************
+ * Breadcrumb *
+ *****************************************/
 
 function get_breadcrumb() {
     echo '<li><i class="fa fa-home"></i><a href="'.home_url().'" rel="nofollow">Home</a></li>';
@@ -358,6 +398,23 @@ function get_breadcrumb() {
         echo the_search_query();
         echo '</em>"';
     }
+}
+
+/*****************************************
+ * Partner Logo ACF Option *
+ *****************************************/
+
+if( function_exists('acf_add_options_page') ) {
+	
+	acf_add_options_page(array(
+		'page_title' 	=> 'Partner Logo',
+		'menu_title'	=> 'Partner Logo',
+		'menu_slug' 	=> 'partner-logo',
+		'capability'	=> 'edit_posts',
+		'redirect'		=> false,
+		'position'      => 7,
+		'icon_url' 		=> 'dashicons-cover-image'
+	));
 }
 
 ?>

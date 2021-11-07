@@ -515,7 +515,7 @@ class IS_Search_Form {
 	            }
 
                 $result = '<form '.esc_attr( $data_attrs ).' class="is-search-form '. esc_attr( $classes ) .'" action="' . esc_url( $search_url ) . '" method="get" role="search" >';
-                $autocomplete = apply_filters( 'is_search_form_autocomplete', 'autocomplete="off"' );
+                $autocomplete = apply_filters( 'is_search_form_autocomplete', 'autocomplete=off' );
 
                 $is_form_id = ( isset( $_GET['id'] ) && is_numeric( $_GET['id'] ) ) ? sanitize_key( $_GET['id'] ) : false;
                 $search_val = ( $is_form_id && $is_form_id === $args['id'] ) ? get_search_query() : '';

@@ -195,7 +195,7 @@ class IS_Public
         
         
         if ( $echo ) {
-            echo  $result;
+            echo  $result ;
         } else {
             return $result;
         }
