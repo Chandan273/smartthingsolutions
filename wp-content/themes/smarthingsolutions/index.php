@@ -7,11 +7,7 @@
             <div class="row">
                 <div class="col-12">
                     <h2><i class="fa fa-pencil"></i>Our Blogs</h2>
-                    <ul>
-                        <li><a href="index.html"><i class="fa fa-home"></i>Home</a></li>
-                        <li><a href="#"><i class="fa fa-clone"></i>Blogs</a></li>
-                        <li class="active"><a href="blogs.html"><i class="fa fa-clone"></i>Grid Layout</a></li>
-                    </ul>
+                    <ul class="breadcrumb-cls"><?php get_breadcrumb(); ?>&nbsp;&nbsp;»&nbsp;&nbsp;<?php  $post = $wp_query->get_queried_object(); echo ucfirst($post->post_name);?></ul>
                 </div>
             </div>
         </div>

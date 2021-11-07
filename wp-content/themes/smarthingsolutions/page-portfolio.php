@@ -7,11 +7,7 @@
             <div class="row">
                 <div class="col-12">
                     <h2><i class="fa fa-pencil"></i>Our Portfolio</h2>
-                    <ul>
-                        <li><a href="index.html"><i class="fa fa-home"></i>Home</a></li>
-                        <li><a href="#"><i class="fa fa-clone"></i>Portfolio</a></li>
-                        <li class="active"><a href="portfolio-masonry.html"><i class="fa fa-clone"></i>Portfolio Masonry</a></li>
-                    </ul>
+                    <ul class="breadcrumb-cls"><?php get_breadcrumb(); ?></ul>
                 </div>
             </div>
         </div>

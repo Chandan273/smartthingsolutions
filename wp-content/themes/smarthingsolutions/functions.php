@@ -340,4 +340,24 @@ function theme_logo() {
 }
 add_action( 'after_setup_theme', 'theme_logo');
 
+function get_breadcrumb() {
+    echo '<li><i class="fa fa-home"></i><a href="'.home_url().'" rel="nofollow">Home</a></li>';
+    if (is_category() || is_single()) {
+        echo "&nbsp;&nbsp;&#187;&nbsp;&nbsp;";
+        the_category(' &bull; ');
+            if (is_single()) {
+                echo "</li> &nbsp;&nbsp;&#187;&nbsp;&nbsp; ";
+                the_title()."</li>";
+            }
+    } elseif (is_page()) {
+        echo "</li>&nbsp;&nbsp;&#187;&nbsp;&nbsp;";
+        echo the_title()."</li>";
+    } elseif (is_search()) {
+        echo "&nbsp;&nbsp;&#187;&nbsp;&nbsp;Search Results for... ";
+        echo '"<em>';
+        echo the_search_query();
+        echo '</em>"';
+    }
+}
+
 ?>

@@ -6,11 +6,8 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-12">
-						<h2><i class="fa fa-pencil"></i>Our Contact Details</h2>
-						<ul>
-							<li><a href="index.html"><i class="fa fa-home"></i>Home</a></li>
-							<li class="active"><a href="contact.html"><i class="fa fa-clone"></i>Contact</a></li>
-						</ul>
+						<h2>Our Contact Details</h2>
+						<ul class="breadcrumb-cls"><?php get_breadcrumb(); ?></ul>
 					</div>
 				</div>
 			</div>

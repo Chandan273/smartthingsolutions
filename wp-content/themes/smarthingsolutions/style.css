@@ -338,6 +338,15 @@ License URI: http://www.smartthingsolutions.come/licenses/gpl-2.0.html
 .header.onepage .nav li:last-child{
 	margin-right:0px;
 }
+ul.breadcrumb-cls {
+    color: #fff;
+    font-size: 16px;
+}
+ul.breadcrumb-cls li i.fa.fa-home {
+    color: #fff;
+    font-size: 24px;
+}
+
 /*======================================
 	End Header CSS
 ========================================*/ 
