@@ -42,40 +42,7 @@
 										<div class="text-content">
 											<h2>Send Message Us</h2>
 										</div>
-										<form class="form" method="post" action="mail/mail.php">
-											<div class="row">
-												<div class="col-lg-6 col-12">
-													<div class="form-group">
-														<input type="text" name="name" placeholder="Full Name" required="required">
-													</div>
-												</div>
-												<div class="col-lg-6 col-12">
-													<div class="form-group">
-														<input type="email" name="email" placeholder="Your Email" required="required">
-													</div>
-												</div>
-												<div class="col-12">
-													<div class="form-group">
-														<select name="subject">
-														  <option class="option" value="1">Starting a new business</option>
-														  <option class="option" value="2">Startup Consultation</option>
-														  <option class="option" value="3">Financial Consultation</option>
-														  <option class="option" value="4">Business Consultation</option>
-														</select>
-													</div>
-												</div>
-												<div class="col-lg-12 col-12">
-													<div class="form-group">
-														<textarea name="message" rows="6" placeholder="Type Your Message" ></textarea>
-													</div>
-												</div>
-												<div class="col-lg-12 col-12">
-													<div class="form-group button">	
-														<button type="submit" class="btn primary">Submit Message</button>
-													</div>
-												</div>
-											</div>
-										</form>
+										<?php echo do_shortcode('[contact-form-7 id="20" title="Contact us"]'); ?>	
 									</div>
 								</div>
 								<!--/ End Contact Form -->

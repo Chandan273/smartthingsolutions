@@ -1,6 +1,8 @@
 <?php 
 
-// Stylesheet
+/*****************************************
+ * StyleSheet *
+ *****************************************/
 
 function load_stylesheet(){
 	wp_register_style('bootstrap_min', get_template_directory_uri().'/assets/css/bootstrap.min.css', array(), 1, 'all');
@@ -51,7 +53,10 @@ function load_stylesheet(){
 }
 add_action( 'wp_enqueue_scripts', 'load_stylesheet' );
  
-// Js Scripts
+
+/*****************************************
+ * Js Scripts *
+ *****************************************/
 
 function load_js(){
 	wp_register_script('jquery_min', get_template_directory_uri().'/assets/js/jquery.min.js', array(),1,1,1);
@@ -120,16 +125,27 @@ function load_js(){
 }
 add_action( 'wp_enqueue_scripts', 'load_js' );
 
-// Post Thumbnails
+
+/*****************************************
+ * Post Thumbnails *
+ *****************************************/
+
 add_theme_support('post-thumbnails');
 
-// Top Menu Bar
+
+/*****************************************
+ * Header Menu *
+ *****************************************/
+
 add_theme_support('menus');
 register_nav_menus(
 	array('top_menu'=>'Header Menu')
 );
 
-// Widgets
+/*****************************************
+ * Add custom Widgets *
+ *****************************************/
+
 function get_widgets(){
 	// Footer Area 1
 	register_sidebar(array(
@@ -172,5 +188,156 @@ function get_widgets(){
 	));			
 }
 add_action('widgets_init','get_widgets');
+
+
+/****************************************
+ * Add custom taxonomy for Portfolio *
+ ****************************************/
+
+add_action('init', 'portfolios_categories_register');
+
+function portfolios_categories_register() {
+$labels = array(
+    'name'                          => 'Portfolio Categories',
+    'singular_name'                 => 'Portfolio Category',
+    'search_items'                  => 'Search Portfolio Categories',
+    'popular_items'                 => 'Popular Portfolio Categories',
+    'all_items'                     => 'All Portfolio Categories',
+    'parent_item'                   => 'Parent Portfolio Category',
+    'edit_item'                     => 'Edit Portfolio Category',
+    'update_item'                   => 'Update Portfolio Category',
+    'add_new_item'                  => 'Add New Portfolio Category',
+    'new_item_name'                 => 'New Portfolio Category',
+    'separate_items_with_commas'    => 'Separate Portfolio categories with commas',
+    'add_or_remove_items'           => 'Add or remove Portfolio categories',
+    'choose_from_most_used'         => 'Choose from most used Portfolio categories'
+    );
+
+$args = array(
+    'label'                         => 'Portfolio Categories',
+    'labels'                        => $labels,
+    'public'                        => true,
+    'hierarchical'                  => true,
+    'show_ui'                       => true,
+    'show_in_nav_menus'             => true,
+    'args'                          => array( 'orderby' => 'term_order' ),
+    'rewrite'                       => array( 'slug' => 'portfolios', 'with_front' => true, 'hierarchical' => true ),
+    'query_var'                     => true
+);
+
+register_taxonomy( 'portfolios_categories', 'portfolios', $args );
+}
+
+/*****************************************
+ * Add custom post type for Portfolios *
+ *****************************************/
+
+add_action('init', 'portfolios_register');
+
+function portfolios_register() {
+
+    $labels = array(
+        'name' => 'Portfolio',
+        'singular_name' => 'Portfolio',
+        'add_new' => 'Add New',
+        'add_new_item' => 'Add New Portfolios',
+        'edit_item' => 'Edit Portfolio',
+        'new_item' => 'New Portfolio',
+        'view_item' => 'View Portfolio',
+        'search_items' => 'Search Portfolio',
+        'not_found' =>  'Nothing found',
+        'not_found_in_trash' => 'Nothing found in Trash',
+        'parent_item_colon' => ''
+    );
+
+    $args = array(
+        'labels' => $labels,
+        'public' => true,
+        'publicly_queryable' => true,
+        'show_ui' => true,
+        'query_var' => true,
+        'has_archive' => true,
+        'rewrite' => array( 'slug' => 'portfolios', 'with_front' => true ),
+        'capability_type' => 'post',
+        'menu_position' => 6,
+        'supports' => array('title', 'excerpt', 'editor','thumbnail') //here you can specify what type of inputs will be accessible in the admin area
+      );
+
+    register_post_type( 'portfolios' , $args );
+}
+
+function smartthingsolutions_customize_register($wp_customize){
+     
+    $wp_customize->add_section('smartthingsolutions_theme_scheme', array(
+        'title'    => __('SmartThing Solutions Theme Settings', 'smartthingsolutions'),
+        'description' => '',
+        'priority' => 120,
+    ));
+  
+    $wp_customize->add_setting('smartthingsolutions_phone_number_options', array(
+        'default'        => '',
+        'capability'     => 'edit_theme_options',
+        'type'           => 'option',
+    ));
+  
+    $wp_customize->add_control('smartthingsolutions_phone_number', array(
+        'label'      => __('Phone Number', 'smartthingsolutions'),
+        'section'    => 'smartthingsolutions_theme_scheme',
+        'settings'   => 'smartthingsolutions_phone_number_options',
+    ));
+
+    $wp_customize->add_setting('smartthingsolutions_email_options', array(
+        'default'        => '',
+        'capability'     => 'edit_theme_options',
+        'type'           => 'option',
+    ));
+  
+    $wp_customize->add_control('smartthingsolutions_email', array(
+        'label'      => __('Email', 'smartthingsolutions'),
+        'section'    => 'smartthingsolutions_theme_scheme',
+        'settings'   => 'smartthingsolutions_email_options',
+    ));
+	
+    $wp_customize->add_setting('smartthingsolutions_work_time_option', array(
+        'default'        => '',
+        'capability'     => 'edit_theme_options',
+        'type'           => 'option',
+    ));
+  
+    $wp_customize->add_control('smartthingsolutions_work_time', array(
+        'label'      => __('Work Timigs', 'smartthingsolutions'),
+        'section'    => 'smartthingsolutions_theme_scheme',
+        'settings'   => 'smartthingsolutions_work_time_option',
+    ));	
+
+    $wp_customize->add_setting('smartthingsolutions_footercopyright_option', array(
+        'default'        => '',
+        'capability'     => 'edit_theme_options',
+        'type'           => 'option',
+    ));
+  
+    $wp_customize->add_control('smartthingsolutions_footercopyright', array(
+        'label'      => __('Footer Copyright', 'smartthingsolutions'),
+        'section'    => 'smartthingsolutions_theme_scheme',
+        'settings'   => 'smartthingsolutions_footercopyright_option',
+    ));
+}
+  
+add_action('customize_register', 'smartthingsolutions_customize_register');
+
+/*****************************************
+ * Website Logo *
+ *****************************************/
+
+function theme_logo() {
+
+    // <title> tag 
+    add_theme_support( 'title-tag' );  
+
+    // custom-logo 
+    add_theme_support( 'custom-logo' );
+
+}
+add_action( 'after_setup_theme', 'theme_logo');
 
 ?>

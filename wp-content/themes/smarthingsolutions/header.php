@@ -56,9 +56,9 @@
 						<div class="col-lg-6 col-12">
 							<!-- Contact -->
 							<ul class="contact">
-								<li><i class="fa fa-headphones"></i> +(123) 45678910</li>
-								<li><i class="fa fa-envelope"></i> <a href="mailto:info@yourmail.com">info@yourmail.com</a></li>
-								<li><i class="fa fa-clock-o"></i>Opening: 09am-5pm</li>
+								<li><i class="fa fa-headphones"></i><?php echo get_option('smartthingsolutions_phone_number_options'); ?></li>
+								<li><i class="fa fa-envelope"></i> <a href="mailto:<?php echo get_option('smartthingsolutions_email_options'); ?>"><?php echo get_option('smartthingsolutions_email_options'); ?></a></li>
+								<li><i class="fa fa-clock-o"></i><?php echo get_option('smartthingsolutions_work_time_option'); ?></li>
 							</ul>
 							<!--/ End Contact -->
 						</div>
@@ -91,6 +91,7 @@
 						<div class="col-lg-2 col-12">
 							<!-- Logo -->
 							<div class="logo">
+								<?php the_custom_logo(); ?>
 								<!--a href="index.html"><img src="<?php //echo get_template_directory_uri(); ?>/assets/images/logo.png" alt="logo"></a-->
 							</div>
 							<div class="link"><a href="index.html"><span>S</span>martThing</a><p>Solutions</p></div>

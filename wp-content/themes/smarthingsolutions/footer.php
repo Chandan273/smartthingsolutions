@@ -43,7 +43,7 @@
 								<!--/ End Social -->
 								<!-- Copyright -->
 								<div class="copyright">
-									<p>&copy; 2021 All Right Reserved. Design & Development By <a target="_blank" href="http://SiliconValley.com">SiliconValley.com</a>, Theme Provided By  <a target="_blank" href="https://SiliconValley.com">Silicon Valley.com</a></p>
+									<p><?php echo get_option('smartthingsolutions_footercopyright_option'); ?></p>
 								</div>
 								<!--/ End Copyright -->
 							</div>
