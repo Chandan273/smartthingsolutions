@@ -53,12 +53,10 @@
                                     <h2><a href="blog-single.html"><?php the_title(); ?></a></h2>
                                     <?php the_content(); ?>
                                     <div class="bottom-area">
-                                        <!-- Next Prev -->
                                         <ul class="arrow">
-                                            <li class="prev"><a href="#"><i class="fa fa-angle-double-left"></i>Previews Posts</a></li>
-                                            <li class="next"><a href="#">Next Posts<i class="fa fa-angle-double-right"></i></a></li>
+                                            <li class="prev"><?php previous_post_link( '%link', __( '<i class="fa fa-angle-double-left"></i>Previews Posts', 'smartthingsolutions' ) ); ?></li>
+                                            <li class="next"><?php next_post_link( '%link', __( 'Next Posts<i class="fa fa-angle-double-right"></i>', 'smartthingsolutions' ) ); ?></li>
                                         </ul>
-                                        <!--/ End Next Prev -->
                                     </div>
                                 </div>
                             </div>
@@ -90,11 +88,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-12">
+                        <!-- <div class="col-12">
                             <div class="blog-comments">
                                 <h2 class="title">37 Comments Found!</h2>
                                 <div class="comments-body">
-                                    <!-- Single Comments -->
                                     <div class="single-comments">
                                         <div class="main">
                                             <div class="head">
@@ -121,8 +118,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <!--/ End Single Comments -->
-                                    <!-- Single Comments -->
+
                                     <div class="single-comments">
                                         <div class="main">
                                             <div class="head">
@@ -137,8 +133,7 @@
                                             </div>
                                         </div>
                                     </div>		
-                                    <!--/ End Single Comments -->	
-                                    <!-- Single Comments -->
+
                                     <div class="single-comments">
                                         <div class="main">
                                             <div class="head">
@@ -153,10 +148,10 @@
                                             </div>
                                         </div>
                                     </div>		
-                                    <!--/ End Single Comments -->											
+									
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="col-12">
                             <div class="comments-form"> 	
 								<?php
