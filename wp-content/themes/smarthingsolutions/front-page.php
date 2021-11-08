@@ -1,5 +1,6 @@
 <?php 
-    get_header(); 
+    get_header();
+    $about_section_arr = get_field('about_section');
 ?>
     <!-- Hero Area -->
     <section id="hero-area" class="hero-area">
@@ -100,9 +101,9 @@
             <div class="row">
                 <div class="col-12">
                     <div class="section-title wow fadeInUp">
-                        <span class="title-bg">Radix</span>
-                        <h1>About Company</h1>
-                        <p>contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old<p>
+                        <span class="title-bg"><?php echo $about_section_arr['about_background_title']; ?></span>
+                        <h1><?php echo $about_section_arr['about_title']; ?></h1>
+                        <p><?php echo $about_section_arr['about_descprition']; ?><p>
                     </div>
                 </div>
             </div>
@@ -111,8 +112,8 @@
                     <!-- Video -->
                     <div class="about-video">
                         <div class="single-video overlay">
-                            <a href="https://www.youtube.com/watch?v=WfMgkLWPZ-w" class="video-popup mfp-fade"><i class="fa fa-play"></i></a>
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/gallery-4.jpg" alt="#">
+                            <a href="<?php echo $about_section_arr['about_video_url']; ?>" class="video-popup mfp-fade"><i class="fa fa-play"></i></a>
+                            <img src="<?php echo $about_section_arr['about_image']; ?>" alt="#">
                         </div>
                     </div>
                     <!--/ End Video -->
@@ -120,10 +121,7 @@
                 <div class="col-lg-6 col-12 wow fadeInRight" data-wow-delay="0.8s">
                     <!-- About Content -->
                     <div class="about-content">
-                        <h2>We are professional website design & development company!</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.  You think water moves fast? You should see ice.</p>
-                        <p>You think water moves fast? You should see ice. It moves like it has a mind. Like it knows it killed the world once and got a taste for murder. After the avalanche, it took us a weeked do incididunt magna Lorem</p>
-                        <p>You think water moves fast? You should see ice. It moves like it has a mind. Like it knows it killed the world once and got a taste for murder. After the avalancip isicing elit, sed do eiusmod tempor incididunt</p>
+                        <?php echo $about_section_arr['about_text']; ?>
                     </div>
                     <!--/ End About Content -->
                 </div>
@@ -132,46 +130,23 @@
                 <div class="col-12">
                     <div class="progress-main">
                         <div class="row">
+                            
+                        <?php if( have_rows('about_skill') ):
+								while( have_rows('about_skill') ) : the_row(); ?>    
                             <div class="col-lg-6 col-md-6 col-12 wow fadeInUp" data-wow-delay="0.4s">
                                 <!-- Single Skill -->
                                 <div class="single-progress">
-                                    <h4>Communication</h4>
+                                    <h4><?php echo get_sub_field('skill_name'); ?></h4>
                                     <div class="progress">
-                                        <div class="progress-bar" role="progressbar" style="width: 78%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><span class="percent">78%</span></div>
+                                        <div class="progress-bar" role="progressbar" style="width: <?php echo get_sub_field('percentage'); ?>" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><span class="percent"><?php echo get_sub_field('percentage'); ?></span></div>
                                     </div>
                                 </div>
                                 <!--/ End Single Skill -->
                             </div>
-                            <div class="col-lg-6 col-md-6 col-12 wow fadeInUp" data-wow-delay="0.6s">
-                                <!-- Single Skill -->
-                                <div class="single-progress">
-                                    <h4>Business Develop</h4>
-                                    <div class="progress">
-                                        <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><span class="percent">80%</span></div>
-                                    </div>
-                                </div>
-                                <!--/ End Single Skill -->
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-12 wow fadeInUp" data-wow-delay="0.8s">
-                                <!-- Single Skill -->
-                                <div class="single-progress">
-                                    <h4>Creative Work</h4>
-                                    <div class="progress">
-                                        <div class="progress-bar" role="progressbar" style="width: 90%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><span class="percent">90%</span></div>
-                                    </div>
-                                </div>
-                                <!--/ End Single Skill -->
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-12 wow fadeInUp" data-wow-delay="1s">
-                                <!-- Single Skill -->
-                                <div class="single-progress">
-                                    <h4>Bootstrap 4</h4>
-                                    <div class="progress">
-                                        <div class="progress-bar" role="progressbar" style="width: 95%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><span class="percent">95%</span></div>
-                                    </div>
-                                </div>
-                                <!--/ End Single Skill -->
-                            </div>
+                        <?php endwhile;
+							endif; 
+						?>	                            
+
                         </div>
                     </div>
                 </div>
@@ -277,60 +252,32 @@
         <div class="container">	
             <div class="row">
                 <div class="col-lg-5 col-12 wow fadeInLeft" data-wow-delay="0.5s">
+                    <?php $achievements_section = get_field('achievements_section'); ?>
                     <div class="text-content">
                         <div class="section-title">
-                            <h1><span>Our achievements</span>With smooth animation numbering </h1>
-                            <p>Pellentesque vitae gravida nulla. Maecenas molestie ligula quis urna viverra venenatis. Donec at ex metus. Suspendisse ac est et magna viverra eleifend. Etiam varius auctor est eu eleifend.</p>
-                            <a href="contact.html" class="btn primary">Contact Us</a>
+                            <h1><?php echo $achievements_section['tiltle']; ?></h1>
+                            <p><?php echo $achievements_section['description']; ?></p>
+                            <a href="<?php echo $achievements_section['button_link']; ?>" class="btn primary"><?php echo $achievements_section['button_name']; ?></a>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-7 col-12">
-                    <div class="row">	
+                    <div class="row">
+
+                        <?php foreach($achievements_section['fact_section'] as $fact_section): ?>	
                         <div class="col-lg-6 col-md-6 col-12 wow fadeIn" data-wow-delay="0.6s">
                             <!-- Single Fact -->
                             <div class="single-fact">
-                                <div class="icon"><i class="fa fa-clock-o"></i></div>
+                                <div class="icon"><?php echo $fact_section['icon']; ?></div>
                                 <div class="counter">
-                                    <p><span class="count">35</span></p>
-                                    <h4>years of success</h4>
+                                    <p><span class="count"><?php echo $fact_section['count']; ?></span><?php echo $fact_section['letter']; ?></p>
+                                    <h4><?php echo $fact_section['title']; ?></h4>
                                 </div>
                             </div>
                             <!--/ End Single Fact -->
                         </div>
-                        <div class="col-lg-6 col-md-6 col-12 wow fadeIn" data-wow-delay="0.8s">
-                            <!-- Single Fact -->
-                            <div class="single-fact">
-                                <div class="icon"><i class="fa fa-bullseye"></i></div>
-                                <div class="counter">
-                                    <p><span class="count">88</span>K</p>
-                                    <h4>Project Complete</h4>
-                                </div>
-                            </div>
-                            <!--/ End Single Fact -->
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-12 wow fadeIn" data-wow-delay="1s">
-                            <!-- Single Fact -->
-                            <div class="single-fact">
-                                <div class="icon"><i class="fa fa-dollar"></i></div>
-                                <div class="counter">
-                                    <p><span class="count">10</span>M</p>
-                                    <h4>Total Earnings</h4>
-                                </div>
-                            </div>
-                            <!--/ End Single Fact -->
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-12 wow fadeIn" data-wow-delay="1.2s">
-                            <!-- Single Fact -->
-                            <div class="single-fact">
-                                <div class="icon"><i class="fa fa-trophy"></i></div>
-                                <div class="counter">
-                                    <p><span class="count">32</span></p>
-                                    <h4>Winning Awards</h4>
-                                </div>
-                            </div>
-                            <!--/ End Single Fact -->
-                        </div>
+                        <?php endforeach; ?>
+
                     </div>
                 </div>
             </div>
@@ -489,11 +436,12 @@
     <section class="call-to-action section" data-stellar-background-ratio="0.5">
         <div class="container">
             <div class="row">
+                <?php $experience_section_arr = get_field('experience_section'); ?>
                 <div class="col-lg-6 col-12 wow fadeInUp">
                     <div class="call-to-main">
-                        <h2>We have 35+ Years of experiences for creating creative website project.</h2>
-                        <p>Maecenas sapien erat, porta non porttitor non, dignissim et enim. Aenean ac enim feugiat, facilisis arcu vehicula, consequat sem. Cras et vulputate nisi, ac dignissim mi. Etiam laoreet</p>
-                        <a href="contact.html" class="btn">Buy This Theme</a>
+                        <h2><?php echo $experience_section_arr['heading']; ?></h2>
+                        <p><?php echo $experience_section_arr['description']; ?></p>
+                        <a href="<?php echo $experience_section_arr['button_link']; ?>" class="btn"><?php echo $experience_section_arr['button_name']; ?></a>
                     </div>
                 </div>
             </div>
@@ -533,9 +481,17 @@
                                         <h4><a href="blog-single.html"><?php the_title(); ?></a></h4>
                                         <?php the_content(); ?>
                                         <div class="meta">
-                                            <span><i class="fa fa-bolt"></i><a href="#">Marketing</a></span>
-                                            <span><i class="fa fa-calendar"></i>03 May, 2018</span>
-                                            <span><i class="fa fa-eye"></i><a href="#">333k</a></span>
+                                            <span>
+                                                <i class="fa fa-bolt"></i>
+                                                <a href="javascript:void(0)">
+                                                <?php $category_detail = get_the_category($post->ID);
+                                                    foreach($category_detail as $cat_name){
+                                                    echo ucfirst($cat_name->cat_name); } 
+                                                    ?>
+                                                </a>
+                                            </span>
+                                            <span><i class="fa fa-calendar"></i></i><?php echo get_the_time('d, F, Y', $post->ID); ?></span>
+                                            <span><a href="javascript:void(0)"><?php echo do_shortcode('[post-views]'); ?></a></span>
                                         </div>
                                     </div>
                                 </div>
@@ -556,10 +512,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 wow fadeInUp">
+                    <?php $client_section_arr = get_field('client_section','option'); ?>
                     <div class="section-title">
-                        <span class="title-bg">Clients</span>
-                        <h1>Our Partners</h1>
-                        <p>Sed lorem enim, faucibus at erat eget, laoreet tincidunt tortor. Ut sed mi nec ligula bibendum aliquam. Sed scelerisque maximus magna, a vehicula turpis Proin<p>
+                        <span class="title-bg"><?php echo $client_section_arr['client_background_title']; ?></span>
+                        <h1><?php echo $client_section_arr['client_heading']; ?></h1>
+                        <p><?php echo $client_section_arr['client_description']; ?><p>
                     </div>
                 </div>
             </div>
