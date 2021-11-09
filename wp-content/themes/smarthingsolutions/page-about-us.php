@@ -35,7 +35,7 @@
                     <div class="about-video">
                         <div class="single-video overlay">
                             <a href="https://www.youtube.com/watch?v=E-2ocmhF6TA" class="video-popup mfp-fade"><i class="fa fa-play"></i></a>
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/gallery-4.jpg" alt="#">
+                            <img src="http://localhost/smartthingsolutions/wp-content/uploads/2021/11/gallery-4.jpg" alt="#">
                         </div>
                     </div>
                     <!--/ End Video -->
