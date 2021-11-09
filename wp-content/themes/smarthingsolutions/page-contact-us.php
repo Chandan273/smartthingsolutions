@@ -77,11 +77,12 @@
 		<section id="partners" class="partners section">
 			<div class="container">
 				<div class="row">
-					<div class="col-12">
+					<div class="col-12 wow fadeInUp">
+						<?php $client_section_arr = get_field('client_section','option'); ?>
 						<div class="section-title">
-							<span class="title-bg"><?php echo $contact_us['client_background_title']; ?></span>
-							<h1><?php echo $contact_us['client_heading']; ?></h1>
-							<p><?php echo $contact_us['client_description']; ?><p>
+							<span class="title-bg"><?php echo $client_section_arr['client_background_title']; ?></span>
+							<h1><?php echo $client_section_arr['client_heading']; ?></h1>
+							<p><?php echo $client_section_arr['client_description']; ?><p>
 						</div>
 					</div>
 				</div>

@@ -18,7 +18,7 @@
     <section class="blogs-main archives section">
         <div class="container">
             <div class="row">
-            <?php $wp_all_query = new WP_Query(array('post_type'=>'post','posts_per_page' => 2,'post_status'=>'publish')) ?>
+            <?php $wp_all_query = new WP_Query(array('post_type'=>'post','posts_per_page' => 6,'post_status'=>'publish')) ?>
 
             <?php $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 

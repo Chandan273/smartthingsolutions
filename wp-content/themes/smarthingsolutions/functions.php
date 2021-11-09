@@ -256,7 +256,7 @@ function portfolios_register() {
         'publicly_queryable' => true,
         'show_ui' => true,
         'query_var' => true,
-        'has_archive' => true,
+        'has_archive' => false,
         'rewrite' => array( 'slug' => 'portfolios', 'with_front' => true ),
         'capability_type' => 'post',
         'menu_position' => 6,
@@ -414,6 +414,32 @@ if( function_exists('acf_add_options_page') ) {
 		'redirect'		=> false,
 		'position'      => 7,
 		'icon_url' 		=> 'dashicons-cover-image'
+	));
+}
+
+if( function_exists('acf_add_options_page') ) {
+	
+	acf_add_options_page(array(
+		'page_title' 	=> 'Slider',
+		'menu_title'	=> 'Slider',
+		'menu_slug' 	=> 'home-slider',
+		'capability'	=> 'edit_posts',
+		'redirect'		=> false,
+		'position'      => 8,
+		'icon_url' 		=> 'dashicons-images-alt'
+	));
+}
+
+if( function_exists('acf_add_options_page') ) {
+	
+	acf_add_options_page(array(
+		'page_title' 	=> 'All Services',
+		'menu_title'	=> 'Services',
+		'menu_slug' 	=> 'services-page-option',
+		'capability'	=> 'edit_posts',
+		'redirect'		=> false,
+		'position'      => 9,
+		'icon_url' 		=> 'dashicons-products'
 	));
 }
 

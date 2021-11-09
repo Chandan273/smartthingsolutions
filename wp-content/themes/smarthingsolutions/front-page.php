@@ -7,17 +7,20 @@
         <!-- Slider -->
         <div class="slider-area">
             <!-- Single Slider -->
-            <div class="single-slider" style="background-image:url('<?php echo get_template_directory_uri(); ?>/assets/images/slider/slider-image1.jpg')">
+            <?php if( have_rows('slider','option') ):
+				while( have_rows('slider','option') ) : the_row(); ?>
+
+            <div class="single-slider" style="background-image:url('<?php echo get_sub_field('slider_background'); ?>')">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-7 col-md-6 col-12">
                             <!-- Slider Text -->
                             <div class="slider-text">
-                                <h1>Radix <span>Business</span> World That Possible anything<span>!</span></h1>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi laoreet urna ante, quis luctus nisi sodales sit amet. Aliquam a enim in massa molestie mollis Proin quis velit at nisl vulputate egestas non in arcu Proin a magna hendrerit, tincidunt neque sed. </p>
+                                <h1><?php echo get_sub_field('heading'); ?></h1>
+                                <p><?php echo get_sub_field('description'); ?></p>
                                 <div class="button">
-                                    <a href="portfolio-3-column.html" class="btn">Our Portfolio</a>
-                                    <a href="https://www.youtube.com/watch?v=WfMgkLWPZ-w" class="btn video video-popup mfp-fade"><i class="fa fa-play"></i>Play Now</a>
+                                    <a href="<?php echo get_sub_field('button_url'); ?>" class="btn"><?php echo get_sub_field('button_name'); ?></a>
+                                    <a href="<?php echo get_sub_field('video_link'); ?>" class="btn video video-popup mfp-fade"><i class="fa fa-play"></i><?php echo get_sub_field('play_button_name'); ?></a>
                                 </div>
                             </div>
                             <!--/ End Slider Text -->
@@ -26,10 +29,10 @@
                             <!-- Image Gallery -->
                             <div class="image-gallery">
                                 <div class="single-image">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/slider/gallery-image1.jpg" alt="#">
+                                    <img src="<?php echo get_sub_field('image1'); ?>" alt="#">
                                 </div>
                                 <div class="single-image two">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/slider/gallery-image2.jpg" alt="#">
+                                    <img src="<?php echo get_sub_field('image2'); ?>" alt="#">
                                 </div>
                             </div>
                             <!--/ End Image Gallery -->
@@ -37,58 +40,9 @@
                     </div>
                 </div>
             </div>
-            <!--/ End Single Slider -->
-            <!-- Single Slider -->
-            <div class="single-slider slider-right" style="background-image:url('<?php echo get_template_directory_uri(); ?>/assets/images/slider/slider-image2.jpg')">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-5 col-md-6 col-12">
-                            <!-- Image Gallery -->
-                            <div class="image-gallery">
-                                <div class="single-image">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/slider/gallery-image1.jpg" alt="#">
-                                </div>
-                                <div class="single-image two">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/slider/gallery-image2.jpg" alt="#">
-                                </div>
-                            </div>
-                            <!--/ End Image Gallery -->
-                        </div>
-                        <div class="col-lg-7 col-md-6 col-12">
-                            <!-- Slider Text -->
-                            <div class="slider-text text-right">
-                                <h1>Radix <span>Business</span> World That Possible anything<span>!</span></h1>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi laoreet urna ante, quis luctus nisi sodales sit amet. Aliquam a enim in massa molestie mollis Proin quis velit at nisl vulputate egestas non in arcu Proin a magna hendrerit, tincidunt neque sed. </p>
-                                <div class="button">
-                                    <a href="services.html" class="btn">Our Services</a>
-                                    <a href="https://www.youtube.com/watch?v=WfMgkLWPZ-w" class="btn video video-popup mfp-fade"><i class="fa fa-play"></i>Play Now</a>
-                                </div>
-                            </div>
-                            <!--/ End Slider Text -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--/ End Single Slider -->
-            <!-- Single Slider -->
-            <div class="single-slider slider-center" style="background-image:url('<?php echo get_template_directory_uri(); ?>/assets/images/slider/slider-image1.jpg')">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-10 offset-lg-1 col-12">
-                            <!-- Slider Text -->
-                            <div class="slider-text text-center">
-                                <h1>Build your website with Radix Multipurpose <span>Business</span> Template.</h1>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi laoreet urna ante, quis luctus nisi sodales sit amet. Aliquam a enim in massa molestie mollis Proin quis velit at nisl vulputate egestas non in arcu Proin a magna hendrerit, tincidunt neque sed. </p>
-                                <div class="button">
-                                    <a href="about-us.html" class="btn">About Company</a>
-                                    <a href="https://www.youtube.com/watch?v=WfMgkLWPZ-w" class="btn video video-popup mfp-fade"><i class="fa fa-play"></i>Play Now</a>
-                                </div>
-                            </div>
-                            <!--/ End Slider Text -->
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <?php endwhile;
+                endif; 
+		    ?>
             <!--/ End Single Slider -->
         </div>
         <!--/ End Slider -->
@@ -161,85 +115,25 @@
             <div class="row">
                 <div class="col-12 wow fadeInUp">
                     <div class="section-title">
-                        <span class="title-bg">Services</span>
-                        <h1>What we provide</h1>
-                        <p>Sed lorem enim, faucibus at erat eget, laoreet tincidunt tortor. Ut sed mi nec ligula bibendum aliquam. Sed scelerisque maximus magna, a vehicula turpis Proin<p>
+                        <?php $services_arr = get_field('services','option'); ?>
+                        <span class="title-bg"><?php echo $services_arr['background_title']; ?></span>
+                        <h1><?php echo $services_arr['heading']; ?></h1>
+                        <p><?php echo $services_arr['description']; ?><p>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-12">
                     <div class="service-slider">
-                        <!-- Single Service -->
+
+                    <?php foreach($services_arr['services'] as $all_services): ?>
                         <div class="single-service">
-                            <i class="fa fa-magic"></i>
-                            <h2><a href="service-single.html">Consulting</a></h2>
-                            <p>welcome to our consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt</p>
+                            <?php echo $all_services['icon']; ?>
+                            <h2><a href="<?php echo $all_services['url']; ?>"><?php echo $all_services['heading']; ?></a></h2>
+                            <p><?php echo $all_services['description']; ?></p>
                         </div>
-                        <!-- End Single Service -->
-                        <!-- Single Service -->
-                        <div class="single-service">
-                            <i class="fa fa-lightbulb-o"></i>
-                            <h2><a href="service-single.html">Creative Idea</a></h2>
-                            <p>Creative and erat, porta non porttitor non, dignissim et enim Aenean ac enim feugiat classical Latin</p>
-                        </div>
-                        <!-- End Single Service -->
-                        <!-- Single Service -->
-                        <div class="single-service">
-                            <i class="fa fa-wordpress"></i>
-                            <h2><a href="service-single.html">Development</a></h2>
-                            <p>just fine erat, porta non porttitor non, dignissim et enim Aenean ac enim feugiat classical Latin</p>
-                        </div>
-                        <!-- End Single Service -->
-                        <!-- Single Service -->
-                        <div class="single-service">
-                            <i class="fa fa-bullhorn "></i>
-                            <h2><a href="service-single.html">Marketing</a></h2>
-                            <p>Possible of erat, porta non porttitor non, dignissim et enim Aenean ac enim feugiat classical Latin</p>
-                        </div>
-                        <!-- End Single Service -->
-                        <!-- Single Service -->
-                        <div class="single-service">
-                            <i class="fa fa-magic"></i>
-                            <h2><a href="service-single.html">Consulting</a></h2>
-                            <p>welcome to our consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt</p>
-                        </div>
-                        <!-- End Single Service -->
-                        <!-- Single Service -->
-                        <div class="single-service">
-                            <i class="fa fa-lightbulb-o"></i>
-                            <h2><a href="service-single.html">Creative Idea</a></h2>
-                            <p>Creative and erat, porta non porttitor non, dignissim et enim Aenean ac enim feugiat classical Latin</p>
-                        </div>
-                        <!-- End Single Service -->
-                        <!-- Single Service -->
-                        <div class="single-service">
-                            <i class="fa fa-wordpress"></i>
-                            <h2><a href="service-single.html">Development</a></h2>
-                            <p>just fine erat, porta non porttitor non, dignissim et enim Aenean ac enim feugiat classical Latin</p>
-                        </div>
-                        <!-- End Single Service -->
-                        <!-- Single Service -->
-                        <div class="single-service">
-                            <i class="fa fa-bullhorn "></i>
-                            <h2><a href="service-single.html">Marketing</a></h2>
-                            <p>Possible of erat, porta non porttitor non, dignissim et enim Aenean ac enim feugiat classical Latin</p>
-                        </div>
-                        <!-- End Single Service -->
-                        <!-- Single Service -->
-                        <div class="single-service">
-                            <i class="fa fa-bullseye "></i>
-                            <h2><a href="service-single.html">Direct Work</a></h2>
-                            <p>Everything ien erat, porta non porttitor non, dignissim et enim Aenean ac enim feugiat Latin</p>
-                        </div>
-                        <!-- End Single Service -->	
-                        <!-- Single Service -->
-                        <div class="single-service">
-                            <i class="fa fa-cube"></i>
-                            <h2><a href="service-single.html">Creative Plan</a></h2>
-                            <p>Information sapien erat,  non porttitor non, dignissim et enim Aenean ac enim feugiat classical Latin</p>
-                        </div>
-                        <!-- End Single Service -->
+                    <?php endforeach; ?>
+
                     </div>
                 </div>
             </div>
@@ -302,12 +196,16 @@
                     <!-- portfolio Nav -->
                     <div class="portfolio-nav">
                         <ul class="tr-list list-inline" id="portfolio-menu">
-                            <li data-filter="*" class="cbp-filter-item active">All Works<div class="cbp-filter-counter"></div></li>  
-                            <li data-filter=".animation" class="cbp-filter-item">Animation<div class="cbp-filter-counter"></div></li>
-                            <li data-filter=".website" class="cbp-filter-item">Website<div class="cbp-filter-counter"></div></li>
-                            <li data-filter=".package" class="cbp-filter-item">Package<div class="cbp-filter-counter"></div></li>
-                            <li data-filter=".development" class="cbp-filter-item">Development<div class="cbp-filter-counter"></div></li>
-                            <li data-filter=".printing" class="cbp-filter-item">Printing<div class="cbp-filter-counter"></div></li>
+                        <?php $cat_args = array(
+                                'orderby'       => 'term_id', 
+                                'order'         => 'ASC',
+                                'hide_empty'    => true, 
+                            );
+
+                        $terms = get_terms('portfolios_categories', $cat_args);
+                        foreach($terms as $category): ?>  
+                            <li data-filter=".<?php echo $category->slug; ?>" class="cbp-filter-item"><?php echo $category->name; ?><div class="cbp-filter-counter"></div></li> 
+                        <?php endforeach; ?>  
                         </ul>  		
                     </div>
                     <!--/ End portfolio Nav -->
@@ -317,108 +215,33 @@
                 <div class="row">	
                     <div class="col-12">	
                         <div id="portfolio-item">
+
+                        <?php $portfolioArr = array('post_type'=>'portfolios','posts_per_page' => -1,'post_status'=>'publish');
+                            $posts = get_posts($portfolioArr);
+                            foreach($posts as $post): setup_postdata($post); ?>  
+
                             <!-- Single portfolio -->
-                            <div class="cbp-item website animation printing">
+                            <div class="cbp-item <?php $terms = get_the_terms( $post->ID, 'portfolios_categories');
+                                        foreach($terms as $category):
+                                            //echo $category->name .'<br>';
+                                            echo $category->slug .' '; 
+                                        endforeach; ?>">
                                 <div class="portfolio-single">
                                     <div class="portfolio-head">
-                                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/portfolio/p1.jpg" alt="#"/>
+                                        <?php the_post_thumbnail('medium'); ?>
                                     </div>
                                     <div class="portfolio-hover">
-                                        <h4><a href="portfolio-single.html">Creative Work</a></h4>
-                                        <p>Maecenas sapien erat, porta non porttitor non, dignissim et enim. Aenean ac enim</p>
+                                        <h4><a href="<?php the_permalink(); ?>"><?php the_title();?></a></h4>
+                                        <?php the_content(); ?>
                                         <div class="button">
-                                            <a class="primary" data-fancybox="gallery" href="images/portfolio/p1.jpg"><i class="fa fa-search"></i></a>
-                                            <a href="portfolio-single.html"><i class="fa fa-link"></i></a>
+                                            <!-- <a href="javascript:void(0)"><?php //echo do_shortcode('[post-views]'); ?></a> -->
+                                            <a href="<?php the_permalink(); ?>"><i class="fa fa-link"></i></a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <!--/ End portfolio -->	
-                            <!-- Single portfolio -->
-                            <div class="cbp-item website package development">
-                                <div class="portfolio-single">
-                                    <div class="portfolio-head">
-                                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/portfolio/p2.jpg" alt="#"/>
-                                    </div>
-                                    <div class="portfolio-hover">
-                                        <h4><a href="portfolio-single.html">Responsive Design</a></h4>
-                                        <p>Maecenas sapien erat, porta non porttitor non, dignissim et enim. Aenean ac enim</p>
-                                        <div class="button">
-                                            <a href="https://www.youtube.com/watch?v=WfMgkLWPZ-w" class="primary cbp-lightbox"><i class="fa fa-play"></i></a>
-                                            <a href="portfolio-single.html"><i class="fa fa-link"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--/ End portfolio -->	
-                            <!-- Single portfolio -->
-                            <div class="cbp-item website animation">
-                                <div class="portfolio-single">
-                                    <div class="portfolio-head">
-                                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/portfolio/p3.jpg" alt="#"/>
-                                    </div>
-                                    <div class="portfolio-hover">
-                                        <h4><a href="portfolio-single.html">Bootstrap Based</a></h4>
-                                        <p>Maecenas sapien erat, porta non porttitor non, dignissim et enim. Aenean ac enim</p>
-                                        <div class="button">
-                                            <a class="primary" data-fancybox="gallery" href="images/portfolio/p3.jpg"><i class="fa fa-search"></i></a>
-                                            <a href="portfolio-single.html"><i class="fa fa-link"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--/ End portfolio -->	
-                            <!-- Single portfolio -->
-                            <div class="cbp-item development printing">
-                                <div class="portfolio-single">
-                                    <div class="portfolio-head">
-                                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/portfolio/p4.jpg" alt="#"/>
-                                    </div>
-                                    <div class="portfolio-hover">
-                                        <h4><a href="portfolio-single.html">Clean Design</a></h4>
-                                        <p>Maecenas sapien erat, porta non porttitor non, dignissim et enim. Aenean ac enim</p>
-                                        <div class="button">
-                                            <a href="https://www.youtube.com/watch?v=WfMgkLWPZ-w" class="primary cbp-lightbox"><i class="fa fa-play"></i></a>
-                                            <a href="portfolio-single.html"><i class="fa fa-link"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--/ End portfolio -->	
-                            <!-- Single portfolio -->
-                            <div class="cbp-item development package">
-                                <div class="portfolio-single">
-                                    <div class="portfolio-head">
-                                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/portfolio/p5.jpg" alt="#"/>
-                                    </div>
-                                    <div class="portfolio-hover">
-                                        <h4><a href="portfolio-single.html">Animation</a></h4>
-                                        <p>Maecenas sapien erat, porta non porttitor non, dignissim et enim. Aenean ac enim</p>
-                                        <div class="button">
-                                            <a class="primary" data-fancybox="gallery" href="images/portfolio/p5.jpg"><i class="fa fa-search"></i></a>
-                                            <a href="portfolio-single.html"><i class="fa fa-link"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--/ End portfolio -->	
-                            <!-- Single portfolio -->
-                            <div class="cbp-item website animation printing">
-                                <div class="portfolio-single">
-                                    <div class="portfolio-head">
-                                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/portfolio/p6.jpg" alt="#"/>
-                                    </div>
-                                    <div class="portfolio-hover">
-                                        <h4><a href="portfolio-single.html">Parallax</a></h4>
-                                        <p>Maecenas sapien erat, porta non porttitor non, dignissim et enim. Aenean ac enim</p>
-                                        <div class="button">
-                                            <a href="https://www.youtube.com/watch?v=WfMgkLWPZ-w" class="primary cbp-lightbox"><i class="fa fa-play"></i></a>
-                                            <a href="portfolio-single.html"><i class="fa fa-link"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--/ End portfolio -->	
+                            <?php endforeach; ?>
                         </div>
                     </div>
                     <div class="col-12">
@@ -433,7 +256,7 @@
     <!--/ End portfolio -->
     
     <!-- Call To Action -->
-    <section class="call-to-action section" data-stellar-background-ratio="0.5">
+    <section class="call-to-action section d-none" data-stellar-background-ratio="0.5">
         <div class="container">
             <div class="row">
                 <?php $experience_section_arr = get_field('experience_section'); ?>
@@ -465,7 +288,7 @@
                 <div class="col-12">
                     <div class="row blog-slider">
                         
-                    <?php $blogArr = array('numberposts' => 5, 'post_type'=>'post');
+                    <?php $blogArr = array('numberposts' => 5, 'post_type'=>'post', 'post_status'=>'publish');
                         $posts = get_posts($blogArr);
                         foreach($posts as $post): setup_postdata($post); ?>
 
@@ -478,7 +301,7 @@
                                 </div>
                                 <div class="blog-bottom">
                                     <div class="blog-inner">
-                                        <h4><a href="blog-single.html"><?php the_title(); ?></a></h4>
+                                        <h4><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
                                         <?php the_content(); ?>
                                         <div class="meta">
                                             <span>
@@ -487,7 +310,7 @@
                                                 <?php $category_detail = get_the_category($post->ID);
                                                     foreach($category_detail as $cat_name){
                                                     echo ucfirst($cat_name->cat_name); } 
-                                                    ?>
+                                                ?>
                                                 </a>
                                             </span>
                                             <span><i class="fa fa-calendar"></i></i><?php echo get_the_time('d, F, Y', $post->ID); ?></span>

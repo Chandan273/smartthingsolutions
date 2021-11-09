@@ -30,21 +30,16 @@
                 </div>
             </div>
             <div class="row">
-			
-			<?php if( have_rows('what_we_provide') ):
-				while( have_rows('what_we_provide') ) : the_row(); ?>			
-                <div class="col-lg-4 col-md-6 col-12">
-                    <div class="single-service">
-                        <?php echo get_sub_field('icon'); ?>
-                        <h2><a href="service-single.html"><?php echo get_sub_field('title'); ?></a></h2>
-                        <p><?php echo get_sub_field('description'); ?></p>
+                <?php $services_arr = get_field('services','option'); ?>
+                <?php foreach($services_arr['services'] as $all_services): ?>			
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <div class="single-service">
+                            <?php echo $all_services['icon']; ?>
+                            <h2><a href="<?php echo $all_services['url']; ?>"><?php echo $all_services['heading']; ?></a></h2>
+                            <p><?php echo $all_services['description']; ?></p>
+                        </div>
                     </div>
-                </div>
-			<?php endwhile;
-				endif; 
-			?>	
-
-                </div>
+                <?php endforeach; ?>	
             </div>
         </div>
     </section>
@@ -54,11 +49,12 @@
     <section id="partners" class="partners section">
         <div class="container">
             <div class="row">
-                <div class="col-12">
+                <div class="col-12 wow fadeInUp">
+                    <?php $client_section_arr = get_field('client_section','option'); ?>
                     <div class="section-title">
-                        <span class="title-bg"><?php echo $serviceArr['service_background_title']; ?></span>
-                        <h1><?php echo $serviceArr['service_heading']; ?></h1>
-                        <p><?php echo $serviceArr['service_description']; ?><p>
+                        <span class="title-bg"><?php echo $client_section_arr['client_background_title']; ?></span>
+                        <h1><?php echo $client_section_arr['client_heading']; ?></h1>
+                        <p><?php echo $client_section_arr['client_description']; ?><p>
                     </div>
                 </div>
             </div>

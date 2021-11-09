@@ -127,6 +127,11 @@ License URI: http://www.smartthingsolutions.come/licenses/gpl-2.0.html
 	font-weight: 600;
 	position: relative;
 }
+.logo img.custom-logo {
+    width: 100%;
+    min-height: 60px;
+    max-height: 60px;
+}
 /* Logo Link */
 .header .link {
 	margin-top: 9px;

@@ -4,15 +4,18 @@
 
     <!-- Breadcrumbs -->
     <section class="breadcrumbs">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <h2><i class="fa fa-pencil"></i>Our Blogs</h2>
-                    <ul class="breadcrumb-cls"><?php get_breadcrumb(); ?></ul>
-                </div>
-            </div>
-        </div>
-    </section>
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<h2><i class="fa fa-pencil"></i>Portfolio</h2>
+						<ul>
+							<li><a href="<?php echo site_url(); ?>"><i class="fa fa-home"></i>Home</a></li>
+							<li><a href="<?php the_permalink(); ?>"><i class="fa fa-clone"></i><?php the_title(); ?></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
     <!--/ End Breadcrumbs -->
     
     <!-- Blogs Area -->
@@ -42,7 +45,7 @@
                                             <span><i class="fa fa-calendar"></i><?php echo get_the_time('d, F, Y', $post->ID); ?></span>
                                             <span><a href="javascript:void(0)"><?php echo do_shortcode('[post-views]'); ?></a></span>
                                         </div>
-                                       
+
                                     </div>
                                     <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
                                     <?php the_content(); ?>
@@ -58,7 +61,6 @@
                         </div>
                         <div class="col-12">
 						<?php $args = array('post_type' => 'post');
-								
 							$post_obj = new WP_Query($args);
 								while($post_obj->have_posts() ) : $post_obj->the_post();
 
@@ -69,8 +71,8 @@
 									//echo "<pre>"; print_r($comment); echo "</pre>";
 								}
 						endwhile; ?>
-                            <div class="author-details">
-                                <div class="author-left">
+                        <div class="author-details">
+                            <div class="author-left">
 								<?php $author_id=$post->post_author; ?>
 									<img src="http://localhost/smartthingsolutions/wp-content/uploads/2021/11/t4.jpg" width="140" height="140" class="avatar" alt="<?php echo the_author_meta( 'display_name' , $author_id ); ?>" />
 									<h4><?php the_author_meta( 'user_nicename' , $author_id ); ?></h4> 
