@@ -257,7 +257,7 @@ function portfolios_register() {
         'show_ui' => true,
         'query_var' => true,
         'has_archive' => false,
-        'rewrite' => array( 'slug' => 'portfolios', 'with_front' => true ),
+        'rewrite' => array( 'slug' => 'portfolios', 'with_front' => false ),
         'capability_type' => 'post',
         'menu_position' => 6,
 		'menu_icon' => 'dashicons-nametag',

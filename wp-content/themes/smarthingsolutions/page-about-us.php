@@ -1,12 +1,13 @@
 <?php 
     get_header(); 
 ?>	
+<?php $about_section_arr = get_field('about_section'); ?>
     <!-- Breadcrumbs -->
     <section class="breadcrumbs">
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <h2><i class="fa fa-pencil"></i>About Our Company</h2>
+                    <h2><?php echo $about_section_arr['about_title']; ?></h2>
                     <ul class="breadcrumb-cls"><?php get_breadcrumb(); ?></ul>
                 </div>
             </div>
@@ -20,9 +21,11 @@
             <div class="row">
                 <div class="col-12">
                     <div class="section-title">
-
+                    
                     <?php if(have_posts()): the_post(); ?>
-                        <span class="title-bg"><?php the_title(); ?></span>
+                        <span class="title-bg"><?php echo $about_section_arr['about_background_title']; ?></span>
+                        <h1><?php the_title(); ?></h1>
+                        <p><?php echo $about_section_arr['about_descprition']; ?></p>
                         <?php the_content(); ?>
                     <?php endif; ?>     
                                        
@@ -31,22 +34,20 @@
             </div>
             <div class="row">
                 <div class="col-lg-6 col-12">
-                    <!-- Video -->
+                    
                     <div class="about-video">
                         <div class="single-video overlay">
-                            <a href="https://www.youtube.com/watch?v=E-2ocmhF6TA" class="video-popup mfp-fade"><i class="fa fa-play"></i></a>
-                            <img src="http://localhost/smartthingsolutions/wp-content/uploads/2021/11/gallery-4.jpg" alt="#">
+                            <a href="<?php echo $about_section_arr['about_video_url']; ?>" class="video-popup mfp-fade"><i class="fa fa-play"></i></a>
+                            <img src="<?php echo $about_section_arr['about_image']; ?>" alt="#">
                         </div>
                     </div>
-                    <!--/ End Video -->
+                    
                 </div>
                 <div class="col-lg-6 col-12">
                     <!-- About Content -->
                     <div class="about-content">
-                        <h2>We are professional website design & development company!</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.  You think water moves fast? You should see ice.</p>
-                        <p>You think water moves fast? You should see ice. It moves like it has a mind. Like it knows it killed the world once and got a taste for murder. After the avalanche, it took us a weeked do incididunt magna Lorem</p>
-                        <p>You think water moves fast? You should see ice. It moves like it has a mind. Like it knows it killed the world once and got a taste for murder. After the avalancip isicing elit, sed do eiusmod tempor incididunt</p>
+                        <h2><?php echo $about_section_arr['about_heading']; ?></h2>
+                        <p><?php echo $about_section_arr['about_text']; ?></p>
                     </div>
                     <!--/ End About Content -->
                 </div>
@@ -55,46 +56,21 @@
                 <div class="col-12">
                     <div class="progress-main">
                         <div class="row">
-                            <div class="col-lg-6 col-md-6 col-12">
-                                <!-- Single Skill -->
-                                <div class="single-progress">
-                                    <h4>Communication</h4>
-                                    <div class="progress">
-                                        <div class="progress-bar" role="progressbar" style="width: 78%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><span class="percent">78%</span></div>
+                            <?php if( have_rows('about_skill') ):
+                                    while( have_rows('about_skill') ) : the_row(); ?>    
+                                <div class="col-lg-6 col-md-6 col-12 wow fadeInUp" data-wow-delay="0.4s">
+                                    <!-- Single Skill -->
+                                    <div class="single-progress">
+                                        <h4><?php echo get_sub_field('skill_name'); ?></h4>
+                                        <div class="progress">
+                                            <div class="progress-bar" role="progressbar" style="width: <?php echo get_sub_field('percentage'); ?>" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><span class="percent"><?php echo get_sub_field('percentage'); ?></span></div>
+                                        </div>
                                     </div>
+                                    <!--/ End Single Skill -->
                                 </div>
-                                <!--/ End Single Skill -->
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-12">
-                                <!-- Single Skill -->
-                                <div class="single-progress">
-                                    <h4>Business Develop</h4>
-                                    <div class="progress">
-                                        <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><span class="percent">80%</span></div>
-                                    </div>
-                                </div>
-                                <!--/ End Single Skill -->
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-12">
-                                <!-- Single Skill -->
-                                <div class="single-progress">
-                                    <h4>Creative Work</h4>
-                                    <div class="progress">
-                                        <div class="progress-bar" role="progressbar" style="width: 90%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><span class="percent">90%</span></div>
-                                    </div>
-                                </div>
-                                <!--/ End Single Skill -->
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-12">
-                                <!-- Single Skill -->
-                                <div class="single-progress">
-                                    <h4>Bootstrap 4</h4>
-                                    <div class="progress">
-                                        <div class="progress-bar" role="progressbar" style="width: 95%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><span class="percent">95%</span></div>
-                                    </div>
-                                </div>
-                                <!--/ End Single Skill -->
-                            </div>
+                            <?php endwhile;
+                                endif; 
+                            ?>
                         </div>
                     </div>
                 </div>
@@ -108,103 +84,32 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 wow fadeInUp">
+                    <?php $client_section_arr = get_field('client_section','option'); ?>
                     <div class="section-title">
-                        <span class="title-bg">Clients</span>
-                        <h1>Our Partners</h1>
-                        <p>Sed lorem enim, faucibus at erat eget, laoreet tincidunt tortor. Ut sed mi nec ligula bibendum aliquam. Sed scelerisque maximus magna, a vehicula turpis Proin<p>
+                        <span class="title-bg"><?php echo $client_section_arr['client_background_title']; ?></span>
+                        <h1><?php echo $client_section_arr['client_heading']; ?></h1>
+                        <p><?php echo $client_section_arr['client_description']; ?><p>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-12">
                     <div class="partners-inner">
-                        <div class="row no-gutters">
-                            <!-- Single Partner -->
-                            <div class="col-lg-2 col-md-3 col-12">
-                                <div class="single-partner">
-                                    <a href="#" target="_blank"><img src="http://via.placeholder.com/140x95" alt="#"></a>
-                                </div>
+                            <div class="row no-gutters">
+                                <?php if( have_rows('our_partner_gallery','option') ):
+                                    while( have_rows('our_partner_gallery','option') ) : the_row(); ?>
+                                        <!-- Single Partner -->
+                                        <div class="col-lg-2 col-md-3 col-12">
+                                            <div class="single-partner">
+                                                <a href="#" target="_blank"><img src="<?php echo get_sub_field('partner_logo'); ?>" alt="partner_
+                                                logo"></a>
+                                            </div>
+                                        </div>
+                                <?php endwhile;
+                                    endif; 
+                                ?>
                             </div>
-                            <!--/ End Single Partner -->
-                            <!-- Single Partner -->
-                            <div class="col-lg-2 col-md-3 col-12">
-                                <div class="single-partner">
-                                    <a href="#" target="_blank"><img src="http://via.placeholder.com/140x95" alt="#"></a>
-                                </div>
-                            </div>
-                            <!--/ End Single Partner -->
-                            <!-- Single Partner -->
-                            <div class="col-lg-2 col-md-3 col-12">
-                                <div class="single-partner">
-                                    <a href="#" target="_blank"><img src="http://via.placeholder.com/140x95" alt="#"></a>
-                                </div>
-                            </div>
-                            <!--/ End Single Partner -->
-                            <!-- Single Partner -->
-                            <div class="col-lg-2 col-md-3 col-12">
-                                <div class="single-partner">
-                                    <a href="#" target="_blank"><img src="http://via.placeholder.com/140x95" alt="#"></a>
-                                </div>
-                            </div>
-                            <!--/ End Single Partner -->
-                            <!-- Single Partner -->
-                            <div class="col-lg-2 col-md-3 col-12">
-                                <div class="single-partner">
-                                    <a href="#" target="_blank"><img src="http://via.placeholder.com/140x95" alt="#"></a>
-                                </div>
-                            </div>
-                            <!--/ End Single Partner -->
-                            <!-- Single Partner -->
-                            <div class="col-lg-2 col-md-3 col-12">
-                                <div class="single-partner">
-                                    <a href="#" target="_blank"><img src="http://via.placeholder.com/140x95" alt="#"></a>
-                                </div>
-                            </div>
-                            <!--/ End Single Partner -->
-                            <!-- Single Partner -->
-                            <div class="col-lg-2 col-md-3 col-12">
-                                <div class="single-partner">
-                                    <a href="#" target="_blank"><img src="http://via.placeholder.com/140x95" alt="#"></a>
-                                </div>
-                            </div>
-                            <!--/ End Single Partner -->
-                            <!-- Single Partner -->
-                            <div class="col-lg-2 col-md-3 col-12">
-                                <div class="single-partner">
-                                    <a href="#" target="_blank"><img src="http://via.placeholder.com/140x95" alt="#"></a>
-                                </div>
-                            </div>
-                            <!--/ End Single Partner -->
-                            <!-- Single Partner -->
-                            <div class="col-lg-2 col-md-3 col-12">
-                                <div class="single-partner">
-                                    <a href="#" target="_blank"><img src="http://via.placeholder.com/140x95" alt="#"></a>
-                                </div>
-                            </div>
-                            <!--/ End Single Partner -->
-                            <!-- Single Partner -->
-                            <div class="col-lg-2 col-md-3 col-12">
-                                <div class="single-partner">
-                                    <a href="#" target="_blank"><img src="http://via.placeholder.com/140x95" alt="#"></a>
-                                </div>
-                            </div>
-                            <!--/ End Single Partner -->
-                            <!-- Single Partner -->
-                            <div class="col-lg-2 col-md-3 col-12">
-                                <div class="single-partner">
-                                    <a href="#" target="_blank"><img src="http://via.placeholder.com/140x95" alt="#"></a>
-                                </div>
-                            </div>
-                            <!--/ End Single Partner -->
-                            <!-- Single Partner -->
-                            <div class="col-lg-2 col-md-3 col-12">
-                                <div class="single-partner">
-                                    <a href="#" target="_blank"><img src="http://via.placeholder.com/140x95" alt="#"></a>
-                                </div>
-                            </div>
-                            <!--/ End Single Partner -->
                         </div>
-                    </div>
                 </div>
             </div>
         </div>

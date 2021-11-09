@@ -1,6 +1,5 @@
 <?php 
     get_header();
-    $about_section_arr = get_field('about_section');
 ?>
     <!-- Hero Area -->
     <section id="hero-area" class="hero-area">
@@ -55,7 +54,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="section-title wow fadeInUp">
-                        <span class="title-bg"><?php echo $about_section_arr['about_background_title']; ?></span>
+                        <span class="title-bg"><?php $about_section_arr = get_field('about_section'); echo $about_section_arr['about_background_title']; ?></span>
                         <h1><?php echo $about_section_arr['about_title']; ?></h1>
                         <p><?php echo $about_section_arr['about_descprition']; ?><p>
                     </div>
