@@ -54,13 +54,7 @@
 										<?php echo $contact_us['address']; ?>
 										<!--/ End Address -->
 										<!-- Social -->
-										<ul class="social">
-											<li class="active"><a href="#"><i class="fa fa-facebook"></i>Like Us facebook</a></li>
-											<li><a href="#"><i class="fa fa-twitter"></i>Follow Us twitter</a></li>
-											<li><a href="#"><i class="fa fa-google-plus"></i>Follow Us google-plus</a></li>
-											<li><a href="#"><i class="fa fa-linkedin"></i>Follow Us linkedin</a></li>
-											<li><a href="#"><i class="fa fa-behance"></i>Follow Us behance</a></li>
-										</ul>
+										<?php echo do_shortcode('[social_icons_group id="186"]'); ?>
 										<!--/ End Social -->
 									</div>
 								</div>

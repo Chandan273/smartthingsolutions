@@ -3048,6 +3048,16 @@ ul.breadcrumb-cls li i.fa.fa-home {
 	height: 400px;
 	width: 100%;
 }
+.contact-address ul.social-icons-lists.show-icons-label {
+    margin: 20px 0;
+}
+.contact-address .social-icons-lists.icons-background-square.centre {
+    text-align: left !important;
+}
+.contact-address li.social-icons-list-item, .contact-address span.social-icons-list-label {
+    color: #fff !important;
+}
+
 /*======================================
 	End Contact CSS
 ========================================*/ 
