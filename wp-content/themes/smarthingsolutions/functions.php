@@ -443,4 +443,17 @@ if( function_exists('acf_add_options_page') ) {
 	));
 }
 
+if( function_exists('acf_add_options_page') ) {
+	
+	acf_add_options_page(array(
+		'page_title' 	=> 'Pop Widget',
+		'menu_title'	=> 'Pop Widget',
+		'menu_slug' 	=> 'pop-widget-option',
+		'capability'	=> 'edit_posts',
+		'redirect'		=> false,
+		'position'      => 10,
+		'icon_url' 		=> 'dashicons-sos'
+	));
+}
+
 ?>

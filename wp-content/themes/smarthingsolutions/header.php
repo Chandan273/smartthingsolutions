@@ -35,16 +35,18 @@
 		
 		<!-- Get Pro Button -->
 		<ul class="pro-features">
-			<a class="get-pro" href="#">Contact Us</a>
-			<li class="title">Demo Version Some Features</li>
-			<li>Multipage & Onepage Homepage</li>
-			<li>26+ HTML5 pages</li>
-			<li>All Premium Features</li>
-			<li>Documentation Included</li>
-			<li>6+ Month Dedicated Support!</li>
+			<?php $widget_arr = get_field('widget', 'option'); ?>
+			<a class="get-pro" href="#"><?php echo $widget_arr['widget_title']; ?></a>
+			<li class="title"><?php echo $widget_arr['widget_title']; ?></li>
+			
+			<?php foreach($widget_arr['inner_description'] as $widget_text ): ?>
+				<li><?php echo $widget_text['text']; ?></li>
+			<?php endforeach; ?>
+			
 			<div class="button">
-				<a href="#" target="_blank" class="btn">Check Our Pricing</a>
+				<a href="<?php echo $widget_arr['button_url']; ?>" target="_blank" class="btn"><?php echo $widget_arr['button_text']; ?></a>
 			</div>
+		
 		</ul>
 		
 		<!-- Start Header -->
